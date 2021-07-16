@@ -1,14 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\IndexController;
+
+Route::get('/index', [IndexController::class, 'index'])->name('index');
+    
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 
-// dans un nouveau projet : laravel_controller_exo_3
-// -integration d'un template multi-page. Toutes les données du sites doivent faire partie d'une variable objet qui sont renvoyées dans des views
-// -Un controller par view
-// -utilisation des templates ( template,yield, etc.. )
-// -nom du repo : laravel_multipage_controller
+Route::get('/products', [ProductsController::class, 'index'])->name('products');
 
-Route::get('/', function () {
-    return view('template/index');
-});
+Route::get('/store', [StoreController::class, 'index'])->name('store');
